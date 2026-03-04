@@ -50,14 +50,10 @@
         .overlay.active { display: block; }
 
         /* 구글 번역 관련 스타일 */
-       #google_translate_element{display:none; }
-        .goog-te-banner-frame.skiptranslate { display: none !important; }
-        body { top: 0px !important; }
-    
-        /* 구글 번역 관련 스타일 */
         #google_translate_element { display: none; }
         .goog-te-banner-frame.skiptranslate { display: none !important; }
         body { top: 0px !important; }
+        .lang-btn { cursor: pointer; }
     </style>
 </head>
 <body>
@@ -1178,7 +1174,7 @@
         const select = document.querySelector('.goog-te-combo');
         if (select) {
             select.value = lang;
-            select.dispatchEvent(new Event('change'));
+            select.dispatchEvent(new Event('change', { bubbles: true }));
         }
     }
     const overlay = document.getElementById('overlay');
